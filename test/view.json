@@ -1,0 +1,9 @@
+{
+  "display": {
+    "access": ["public", "private"],
+    "alias": true,
+    "watermark": true
+  },
+
+  "package": "./package.json"
+}

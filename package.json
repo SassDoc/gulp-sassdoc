@@ -1,0 +1,52 @@
+{
+  "name": "gulp-sassdoc",
+  "title": "gulp-sassdoc",
+  "version": "0.1.0",
+  "description": "SassDoc gulp task",
+  "keywords": [
+    "gulpplugin",
+    "gulpfriendly",
+    "gulp",
+    "sass",
+    "scss",
+    "doc",
+    "documentation"
+  ],
+  "homepage": "https://github.com/SassDoc/gulp-sassdoc",
+  "bugs": "https://github.com/SassDoc/gulp-sassdoc/issues",
+  "author": {
+    "name": "Pascal Duez",
+    "url": "https://github.com/pascalduez"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SassDoc/gulp-sassdoc.git"
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "gulp-util": "^2.2.20",
+    "lodash": "^2.4.1",
+    "sassdoc": "^1.0.0-rc.16",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-clean": "^0.3.1",
+    "gulp-eslint": "^0.1.8",
+    "gulp-mocha": "^0.5.0",
+    "run-sequence": "^0.3.6"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": {
+    "type": "unlicence",
+    "url": "http://unlicense.org"
+  },
+  "scripts": {
+    "test": "gulp test"
+  }
+}
