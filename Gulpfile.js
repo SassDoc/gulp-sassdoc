@@ -5,11 +5,10 @@ var eslint = require('gulp-eslint');
 var mocha = require('gulp-mocha');
 var clean = require('gulp-clean');
 var gutil = require('gulp-util');
-var runSequence = require('run-sequence');
 var sassdoc = require('./');
 
 
-gulp.task('mocha', function () {
+gulp.task('mocha', ['sassdoc'], function () {
   return gulp
     .src('test/*-test.js', { read: false })
     .pipe(mocha({ reporter: 'spec' }))
@@ -43,7 +42,7 @@ gulp.task('sassdoc_config', function () {
 });
 
 
-gulp.task('sassdoc_options', function () {
+gulp.task('sassdoc', function () {
   return gulp
     .src('test/fixture')
     .pipe(sassdoc({
@@ -59,9 +58,4 @@ gulp.task('sassdoc_options', function () {
 });
 
 
-gulp.task('test', function () {
-  runSequence('lint',
-    'sassdoc_config', 'mocha', 'clean',
-    'sassdoc_options', 'mocha', 'clean'
-  );
-});
+gulp.task('test', ['lint', 'sassdoc', 'mocha', 'clean']);

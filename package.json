@@ -1,7 +1,7 @@
 {
   "name": "gulp-sassdoc",
   "title": "gulp-sassdoc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "SassDoc gulp task",
   "keywords": [
     "gulpplugin",
@@ -23,18 +23,17 @@
     "url": "git://github.com/SassDoc/gulp-sassdoc.git"
   },
   "dependencies": {
-    "chalk": "^0.5.1",
+    "sassdoc": "^1.0.1",
     "gulp-util": "^2.2.20",
-    "lodash": "^2.4.1",
-    "sassdoc": "^1.0.0-rc.16",
-    "through2": "^0.5.1"
+    "through2": "^0.5.1",
+    "chalk": "^0.5.1",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "gulp": "^3.8.6",
     "gulp-clean": "^0.3.1",
     "gulp-eslint": "^0.1.8",
-    "gulp-mocha": "^0.5.0",
-    "run-sequence": "^0.3.6"
+    "gulp-mocha": "^0.5.1"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -47,6 +46,6 @@
     "url": "http://unlicense.org"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test && gulp clean"
   }
 }

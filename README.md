@@ -100,6 +100,17 @@ You should really manage your options in one place._
 ### Config examples
 
 ```js
+// Bare minimum, using defaults.
+gulp.task('sassdoc', function () {
+  return gulp
+    .src('path/to/sass')
+    .pipe(sassdoc({
+      dest: 'path/to/docs'
+    }));
+});
+```
+
+```js
 // Example with external view configuration file.
 gulp.task('sassdoc', function () {
   return gulp
