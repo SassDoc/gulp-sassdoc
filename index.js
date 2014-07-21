@@ -26,13 +26,13 @@ function fileExists() {
 }
 
 
-function loadJSON(path) {
-  if (!fileExists(path)) {
-    throw new PluginError(PLUGIN_NAME, 'Source file "' + chalk.cyan(path) + '" not found.');
+function loadJSON(filePath) {
+  if (!fileExists(filePath)) {
+    throw new PluginError(PLUGIN_NAME, 'Source file "' + chalk.cyan(filePath) + '" not found.');
     return false;
   }
   else {
-    return require(process.cwd() + '/' + String(path));
+    return require(path.join(process.cwd(), filePath));
   }
 }
 

@@ -8,7 +8,6 @@ var gutil = require('gulp-util');
 var runSequence = require('run-sequence');
 var sassdoc = require('./');
 
-console.log(require.resolve('tape'));
 
 gulp.task('lint', function () {
   return gulp
@@ -19,29 +18,33 @@ gulp.task('lint', function () {
 
 
 gulp.task('sassdoc_config', function () {
+  var options = {
+    dest: 'test/docs',
+    verbose: true,
+    config: 'test/view.json'
+  };
+  
   return gulp
     .src('test/fixture')
-    .pipe(sassdoc({
-      dest: 'test/docs',
-      verbose: true,
-      config: 'test/view.json'
-    }));
+    .pipe(sassdoc(options));
 });
 
 
 gulp.task('sassdoc_options', function () {
+  var options = {
+    dest: 'test/docs',
+    verbose: true,
+    display: {
+      access: ['public', 'private'],
+      alias: true,
+      watermark: true
+    },
+    package: './package.json'
+  };
+
   return gulp
     .src('test/fixture')
-    .pipe(sassdoc({
-      dest: 'test/docs',
-      verbose: true,
-      display: {
-        access: ['public', 'private'],
-        alias: true,
-        watermark: true
-      },
-      package: './package.json'
-    }));
+    .pipe(sassdoc(options));
 });
 
 
