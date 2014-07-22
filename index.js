@@ -21,8 +21,8 @@ var PLUGIN_NAME = 'gulp-sassdoc';
 
 
 function fileExists() {
-  var filepath = path.join.apply(path, arguments);
-  return fs.existsSync(filepath);
+  var filePath = path.join.apply(path, arguments);
+  return fs.existsSync(filePath);
 }
 
 
