@@ -3,9 +3,9 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var shell = require('gulp-shell')
-var clean = require('gulp-clean');
 var gutil = require('gulp-util');
 var runSequence = require('run-sequence');
+var rimraf = require('rimraf');
 var sassdoc = require('./');
 
 
@@ -23,7 +23,7 @@ gulp.task('sassdoc_config', function () {
     verbose: true,
     config: 'test/view.json'
   };
-  
+
   return gulp
     .src('test/fixture')
     .pipe(sassdoc(options));
@@ -39,7 +39,14 @@ gulp.task('sassdoc_options', function () {
       alias: true,
       watermark: true
     },
-    package: './package.json'
+    groups: {
+      'undefined': 'Ungrouped',
+      'foo': 'Foo group',
+      'bar': 'Bar group'
+    },
+    package: './package.json',
+    theme: 'default',
+    basePath: 'https://github.com/SassDoc/gulp-sassdoc/tree/master/test/fixture'
   };
 
   return gulp
@@ -53,10 +60,8 @@ gulp.task('tape', shell.task([
 ]));
 
 
-gulp.task('clean', function () {
-  return gulp
-    .src('test/docs', { read: false })
-    .pipe(clean());
+gulp.task('clean', function (cb) {
+  rimraf('test/docs', cb);
 });
 
 

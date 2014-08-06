@@ -76,7 +76,7 @@ Enable/disable display of SassDoc watermark in footer.
 #### package
 
 Type: `String | Object`  
-Default: `'./package.json'`
+Default: `null`
 
 Pass your project informations to the generated view.
 Either a path to your `package.json` or an object.
@@ -90,9 +90,37 @@ Following keys will be looked for:
 `description`
 
 
+#### theme <span style="font-size: .7em">*(since sassdoc@1.2.0)*</span>
+
+
+Type: `String`  
+Default: `'default'`
+
+Name of a custom theme, either a published package or a local one.
+Check the [doc](https://github.com/SassDoc/sassdoc/wiki/Using-Your-Own-Theme) for more infos.
+
+
+#### groups <span style="font-size: .7em">*(since sassdoc@1.2.0)*</span>
+
+Type: `Object`  
+Default: `{ 'undefined': 'Ungrouped' }`
+
+Give friendly names to your groups, if any.
+Check the [doc](https://github.com/SassDoc/sassdoc-filter#group-name) for more infos.
+
+
+#### basePath <span style="font-size: .7em">*(since sassdoc@1.2.0)*</span>
+
+Type: `String`  
+Default: `null`
+
+An URL or a path which will be transformed in a link to the source file.
+Check the [doc](https://github.com/SassDoc/sassdoc/wiki/Customising-the-View) for more infos.
+
+
 
 _**Heads up**: If a config file is passed and found, its options will prevail over defauts.
-Additionnal options passed to the gulp task, will complement it but not override it.
+Additionnal options passed to the grunt task, will complement it but not override it.
 You should really manage your options in one place._
 
 
@@ -125,19 +153,30 @@ gulp.task('sassdoc', function () {
 
 ```js
 // Example with passed in options.
+// Tip: you don't need to pass every options,
+// just override the one you need.
 gulp.task('sassdoc', function () {
-  return gulp
-    .src('path/to/sass')
-    .pipe(sassdoc({
-      dest: 'path/to/docs',
+  var options = {
+      dest: 'test/docs',
       verbose: true,
       display: {
         access: ['public', 'private'],
         alias: true,
         watermark: true
       },
-      package: './package.json'
-    }));
+      groups: {
+        'undefined': 'Ungrouped',
+        'foo': 'Foo group',
+        'bar': 'Bar group'
+      },
+      package: './package.json',
+      theme: 'default',
+      basePath: 'https://github.com/SassDoc/sassdoc'
+    };
+
+    return gulp
+      .src('test/fixture')
+      .pipe(sassdoc(options));
 });
 ```
 

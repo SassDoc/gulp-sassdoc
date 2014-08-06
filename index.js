@@ -47,7 +47,12 @@ function handleOptions(options) {
       alias: false,
       watermark: true
     },
-    package: null
+    groups: {
+      'undefined': 'Ungrouped'
+    },
+    package: null,
+    theme: 'default',
+    basePath: null
   }, options);
 
   // If a config file is passed and found,
