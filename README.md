@@ -100,7 +100,11 @@ You should really manage your options in one place._
 ### Config examples
 
 ```js
-// Bare minimum, using defaults.
+var gulp = require('gulp');
+var sassdoc = require('gulp-sassdoc');
+
+
+// Bare minimum example, using defaults.
 gulp.task('sassdoc', function () {
   return gulp
     .src('path/to/sass')
@@ -108,9 +112,8 @@ gulp.task('sassdoc', function () {
       dest: 'path/to/docs'
     }));
 });
-```
 
-```js
+
 // Example with external view configuration file.
 gulp.task('sassdoc', function () {
   return gulp
@@ -121,9 +124,8 @@ gulp.task('sassdoc', function () {
       config: 'path/to/view.json'
     }));
 });
-```
 
-```js
+
 // Example with passed in options.
 gulp.task('sassdoc', function () {
   return gulp
