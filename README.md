@@ -7,7 +7,7 @@ Its goal is to make SassDoc integration in your Gulp workflow easier.
 
 ## Getting Started
 
-If you haven't used [gulp][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [Gulpfile][Getting Started] as well as install and use Gulp plugins. Once you're familiar with that process, install this plugin with this command:
+If you haven't used [gulp] before, be sure to check out the [Getting Started] guide, as it explains how to create a [Gulpfile][Getting Started] as well as install and use Gulp plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```sh
 npm install --save-dev gulp-sassdoc
@@ -90,37 +90,40 @@ Following keys will be looked for:
 `description`
 
 
-#### theme <span style="font-size: .7em">*(since sassdoc@1.2.0)*</span>
+#### theme
 
 
 Type: `String`  
-Default: `'default'`
+Default: `'default'`  
+Since: `sassdoc@1.2.0`
 
 Name of a custom theme, either a published package or a local one.
 Check the [doc](https://github.com/SassDoc/sassdoc/wiki/Using-Your-Own-Theme) for more infos.
 
 
-#### groups <span style="font-size: .7em">*(since sassdoc@1.2.0)*</span>
+#### groups
 
 Type: `Object`  
-Default: `{ 'undefined': 'Ungrouped' }`
+Default: `{ 'undefined': 'Ungrouped' }`  
+Since: `sassdoc@1.2.0`
 
 Give friendly names to your groups, if any.
 Check the [doc](https://github.com/SassDoc/sassdoc-filter#group-name) for more infos.
 
 
-#### basePath <span style="font-size: .7em">*(since sassdoc@1.2.0)*</span>
+#### basePath
 
 Type: `String`  
-Default: `null`
+Default: `null`  
+Since: `sassdoc@1.2.0`
 
 An URL or a path which will be transformed in a link to the source file.
 Check the [doc](https://github.com/SassDoc/sassdoc/wiki/Customising-the-View) for more infos.
 
 
 
-_**Heads up**: If a config file is passed and found, its options will prevail over defauts.
-Additionnal options passed to the grunt task, will complement it but not override it.
+_**Heads up**: If a config file is passed and found, its options will prevail over defaults.
+Additional options passed to the Gulp task, will complement it but not override it.
 You should really manage your options in one place._
 
 
@@ -128,7 +131,11 @@ You should really manage your options in one place._
 ### Config examples
 
 ```js
-// Bare minimum, using defaults.
+var gulp = require('gulp');
+var sassdoc = require('gulp-sassdoc');
+
+
+// Bare minimum example, using defaults.
 gulp.task('sassdoc', function () {
   return gulp
     .src('path/to/sass')
@@ -136,22 +143,19 @@ gulp.task('sassdoc', function () {
       dest: 'path/to/docs'
     }));
 });
-```
 
-```js
+
 // Example with external view configuration file.
 gulp.task('sassdoc', function () {
   return gulp
     .src('path/to/sass')
     .pipe(sassdoc({
       dest: 'path/to/docs',
-      verbose: true,
       config: 'path/to/view.json'
     }));
 });
-```
 
-```js
+
 // Example with passed in options.
 // Tip: you don't need to pass every options,
 // just override the one you need.
