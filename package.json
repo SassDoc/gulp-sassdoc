@@ -1,7 +1,7 @@
 {
   "name": "gulp-sassdoc",
   "title": "gulp-sassdoc",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "SassDoc gulp task",
   "keywords": [
     "gulpplugin",
@@ -23,7 +23,7 @@
     "url": "git://github.com/SassDoc/gulp-sassdoc.git"
   },
   "dependencies": {
-    "sassdoc": "1.2.0-rc.1",
+    "sassdoc": "^1.2.0",
     "gulp-util": "^3.0.0",
     "through2": "^0.5.1",
     "chalk": "^0.5.1",
