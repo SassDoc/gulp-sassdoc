@@ -2,8 +2,9 @@
 
 > [SassDoc](https://github.com/SassDoc/sassdoc) Gulp task.
 
-This is a [Gulp friendly](https://github.com/gulpjs/gulp/blob/master/docs/writing-a-plugin/README.md#about-streams) plugin, not using streams.  
-Its goal is to make SassDoc integration in your Gulp workflow easier.
+This is a [Gulp friendly](https://github.com/gulpjs/gulp/blob/master/docs/writing-a-plugin/README.md#about-streams) plugin, not using the benefits of streams.  
+Its goal is to make SassDoc integration in your Gulp workflow easier.  
+So it's all sugaristic at the end. You might want to [skip it](#without-plugin).
 
 ## Getting Started
 
@@ -183,6 +184,49 @@ gulp.task('sassdoc', function () {
       .pipe(sassdoc(options));
 });
 ```
+
+
+### Without plugin
+
+If you don't feel like using yet another plugin, set your task yourself:
+
+```js
+var gulp = require('gulp');
+var sassdoc = require('sassdoc');
+
+// A custom task to compile through SassDoc API.
+gulp.task('sassdoc', function () {
+  var src = 'path/to/sass';
+  var dest = 'path/to/docs';
+
+  // Tip: you don't need to pass every options,
+  // just override the one you need.
+  var config = {
+    verbose: true,
+    display: {
+      access: ['public', 'private'],
+      alias: true,
+      watermark: true
+    },
+    groups: {
+      'undefined': 'Ungrouped',
+      'foo': 'Foo group',
+      'bar': 'Bar group'
+    },
+    package: './package.json',
+    theme: 'default',
+    basePath: 'https://github.com/SassDoc/sassdoc'
+  };
+
+  // Enable verbose.
+  sassdoc.logger.enabled = config['verbose'];
+
+  // Return a Promise.
+  return sassdoc.documentize(src, dest, config);
+});
+
+```
+
 
 ## Authors
 
