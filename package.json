@@ -1,7 +1,7 @@
 {
   "name": "gulp-sassdoc",
   "title": "gulp-sassdoc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "SassDoc gulp task",
   "keywords": [
     "gulpplugin",
