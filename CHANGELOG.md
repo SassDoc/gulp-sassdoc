@@ -1,5 +1,13 @@
 # gulp-sassdoc changelog
 
+## 1.1.0
+(2014-10-27)
+
+### Features
+
+* Add default safe-wipe options
+([9aa25cb](https://github.com/SassDoc/gulp-sassdoc/commit/9aa25cbe26658f3a1f199df46d55938125096331))
+
 ## 1.0.0
 (2014-08-11)
 
