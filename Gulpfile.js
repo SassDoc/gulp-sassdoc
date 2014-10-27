@@ -21,7 +21,9 @@ gulp.task('sassdoc_config', function () {
   var options = {
     dest: 'test/docs',
     verbose: true,
-    config: 'test/view.json'
+    config: 'test/view.json',
+    force: true,
+    interactive: false
   };
 
   return gulp
@@ -46,7 +48,9 @@ gulp.task('sassdoc_options', function () {
     },
     package: './package.json',
     theme: 'default',
-    basePath: 'https://github.com/SassDoc/gulp-sassdoc/tree/master/test/fixture'
+    basePath: 'https://github.com/SassDoc/gulp-sassdoc/tree/master/test/fixture',
+    force: true,
+    interactive: false
   };
 
   return gulp

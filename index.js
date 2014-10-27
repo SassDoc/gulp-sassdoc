@@ -52,7 +52,9 @@ function handleOptions(options) {
     },
     package: null,
     theme: 'default',
-    basePath: null
+    basePath: null,
+    force: false,
+    interactive: true
   }, options);
 
   // If a config file is passed and found,
