@@ -22,6 +22,12 @@
     "type": "git",
     "url": "git://github.com/SassDoc/gulp-sassdoc.git"
   },
+  "files": [
+    "CHANGELOG.md",
+    "index.js",
+    "README.md",
+    "UNLICENSE"
+  ],
   "dependencies": {
     "sassdoc": "^1.2.0",
     "gulp-util": "^3.0.0",

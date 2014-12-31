@@ -1,6 +1,0 @@
-.npmignore
-.editorconfig
-.travis.yml
-.eslintrc
-test
-Gulpfile.js
