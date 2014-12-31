@@ -25,18 +25,18 @@
   "dependencies": {
     "sassdoc": "^1.2.0",
     "gulp-util": "^3.0.0",
-    "through2": "^0.5.1",
+    "through2": "^0.6.3",
     "chalk": "^0.5.1",
     "lodash": "^2.4.1"
   },
   "devDependencies": {
     "faucet": "0.0.1",
     "gulp": "^3.8.6",
-    "gulp-eslint": "^0.1.8",
+    "gulp-eslint": "^0.2.0",
     "gulp-shell": "^0.2.8",
     "rimraf": "^2.2.8",
-    "run-sequence": "^0.3.6",
-    "tape": "^2.13.4"
+    "run-sequence": "^1.0.2",
+    "tape": "^3.0.3"
   },
   "engines": {
     "node": ">=0.10.0"
