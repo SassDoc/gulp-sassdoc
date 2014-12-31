@@ -27,7 +27,7 @@ gulp.task('sassdoc_config', function () {
   };
 
   return gulp
-    .src('test/fixture')
+    .src('test/fixture/**/*.scss')
     .pipe(sassdoc(options));
 });
 
@@ -54,7 +54,7 @@ gulp.task('sassdoc_options', function () {
   };
 
   return gulp
-    .src('test/fixture')
+    .src('test/fixture/**/*.scss')
     .pipe(sassdoc(options));
 });
 

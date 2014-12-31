@@ -1,4 +1,4 @@
-/*
+/**
  * gulp-sassdoc
  *
  * unlicenced
@@ -19,12 +19,10 @@ var PluginError = gutil.PluginError;
 
 var PLUGIN_NAME = 'gulp-sassdoc';
 
-
 function fileExists() {
   var filePath = path.join.apply(path, arguments);
   return fs.existsSync(filePath);
 }
-
 
 function loadJSON(filePath) {
   if (!fileExists(filePath)) {
@@ -35,7 +33,6 @@ function loadJSON(filePath) {
     return require(path.join(process.cwd(), filePath));
   }
 }
-
 
 function handleOptions(options) {
   // Defaults.
@@ -87,7 +84,6 @@ function handleOptions(options) {
   return options;
 }
 
-
 function gulpSassDoc(options) {
   options = handleOptions(options || {});
 
@@ -95,30 +91,26 @@ function gulpSassDoc(options) {
     throw new PluginError(PLUGIN_NAME, '`dest` is required!');
   }
 
-  var stream = through.obj(function (file, enc, cb) {
-    var self = this;
+  var src;
 
-    if (file.isStream()) {
-      this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
-      return cb();
-    }
+  var transform = function (file, enc, cb) {
+    src = file.isDirectory() ? file.path : file.base;
+    cb(null, file);
+  }
 
-    sassdoc.documentize(file.path, options.dest, options)
+  var flush = function (cb) {
+    sassdoc.documentize(src, options.dest, options)
       .then(function () {
         gutil.log('SassDoc documentation successfully generated.');
-        self.push(file);
         cb();
       })
       .catch(function (err) {
         self.emit('error', new PluginError(PLUGIN_NAME, err));
-        self.push(file);
         cb(err);
       });
+  }
 
-  });
-
-  return stream;
+  return through.obj(transform, flush);;
 }
-
 
 module.exports = gulpSassDoc;
