@@ -94,7 +94,10 @@ function gulpSassDoc(options) {
   var src;
 
   var transform = function (file, enc, cb) {
-    src = file.isDirectory() ? file.path : file.base;
+    if (!src) {
+      src = file.isDirectory() ? file.path : file.base;
+    }
+
     cb(null, file);
   }
 
