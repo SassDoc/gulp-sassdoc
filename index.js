@@ -12,10 +12,10 @@ var path = require('path');
 var sassdoc = require('sassdoc');
 var through = require('through2');
 var gutil = require('gulp-util');
-var chalk = require('chalk');
 var _ = require('lodash');
 
 var PluginError = gutil.PluginError;
+var color = gutil.colors;
 
 var PLUGIN_NAME = 'gulp-sassdoc';
 
@@ -26,7 +26,7 @@ function fileExists() {
 
 function loadJSON(filePath) {
   if (!fileExists(filePath)) {
-    throw new PluginError(PLUGIN_NAME, 'Source file "' + chalk.cyan(filePath) + '" not found.');
+    throw new PluginError(PLUGIN_NAME, 'Source file "' + color.cyan(filePath) + '" not found.');
     return false;
   }
   else {
