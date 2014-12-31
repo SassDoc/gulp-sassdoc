@@ -1,5 +1,10 @@
 # gulp-sassdoc changelog
 
+## 1.2.0
+(2014-12-31)
+
+* Refactor, ensure both folders and glob patterns as source are supoorted.
+
 ## 1.1.0
 (2014-10-27)
 
