@@ -1,9 +1,14 @@
 # gulp-sassdoc changelog
 
+## 1.3.0
+(2015-01-02)
+
+* Disable destination safe-wiping by default.
+
 ## 1.2.0
 (2014-12-31)
 
-* Refactor, ensure both folders and glob patterns as source are supoorted.
+* Refactor, ensure both folders and glob patterns as source are supported.
 
 ## 1.1.0
 (2014-10-27)
