@@ -3,6 +3,10 @@
 > [SassDoc](https://github.com/SassDoc/sassdoc) Gulp task.
 
 
+Note: Starting from SassDoc version `>=2.0` this plugin will be deprecated,
+in favor of using `sassdoc` main package directly.
+
+
 ## Documentation
 
 * Refers to the SassDoc Gulp task [main documentation](http://sassdoc.com/gulp/).
