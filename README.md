@@ -1,12 +1,10 @@
-# gulp-sassdoc [![npm version](http://img.shields.io/npm/v/gulp-sassdoc.svg?style=flat)](https://www.npmjs.org/package/gulp-sassdoc) [![Build Status: Linux](http://img.shields.io/travis/SassDoc/gulp-sassdoc.svg?style=flat)](https://travis-ci.org/SassDoc/gulp-sassdoc?branch=master)
+# gulp-sassdoc [deprecated]
 
 > [SassDoc](https://github.com/SassDoc/sassdoc) Gulp task.
 
-
-## Documentation
-
-* Refers to the SassDoc Gulp task [main documentation](http://sassdoc.com/gulp/).
-* Additionally see the [Gulpfile](Gulpfile.js) in this repo for a full example.
+Note: this plugin is no longer maintained.  
+* Starting from SassDoc version `>=2.0` use `sassdoc` main package directly.
+* Refers to the SassDoc Gulp usage [main documentation](http://sassdoc.com/gulp/).
 
 
 ## Authors
