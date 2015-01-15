@@ -27,7 +27,6 @@ function fileExists() {
 function loadJSON(filePath) {
   if (!fileExists(filePath)) {
     throw new PluginError(PLUGIN_NAME, 'Source file "' + color.cyan(filePath) + '" not found.');
-    return false;
   }
   else {
     return require(path.join(process.cwd(), filePath));
@@ -99,7 +98,7 @@ function gulpSassDoc(options) {
     }
 
     cb(null, file);
-  }
+  };
 
   var flush = function (cb) {
     sassdoc.documentize(src, options.dest, options)
@@ -108,10 +107,10 @@ function gulpSassDoc(options) {
         cb();
       })
       .catch(function (err) {
-        self.emit('error', new PluginError(PLUGIN_NAME, err));
+        this.emit('error', new PluginError(PLUGIN_NAME, err));
         cb(err);
       });
-  }
+  };
 
   return through.obj(transform, flush);
 }

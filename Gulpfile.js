@@ -2,8 +2,7 @@
 
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
-var shell = require('gulp-shell')
-var gutil = require('gulp-util');
+var shell = require('gulp-shell');
 var runSequence = require('run-sequence');
 var rimraf = require('rimraf');
 var sassdoc = require('./');
@@ -11,7 +10,7 @@ var sassdoc = require('./');
 
 gulp.task('lint', function () {
   return gulp
-    .src(['tasks/*js', 'test/*.js'])
+    .src(['*.js', 'test/*.js'])
     .pipe(eslint())
     .pipe(eslint.format());
 });
@@ -60,7 +59,7 @@ gulp.task('sassdoc_options', function () {
 
 
 gulp.task('tape', shell.task([
-  'node test/*-test.js | faucet',
+  'tape test/*-test.js | faucet'
 ]));
 
 
